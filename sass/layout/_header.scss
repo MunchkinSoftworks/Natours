@@ -1,0 +1,42 @@
+.header {
+    /*95% view port height. at any point the height of this element should be */
+    height: 95vh;
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba($color-primary-light, 0.8), 
+        rgba($color-primary-dark, 0.8)), 
+        url(../img/hero.jpg);
+    /*will always try to fit the element to the width of the viewport*/
+    background-size: cover;
+    /*starting position of the image this affects how the image will be cropped*/
+    background-position: top;
+    /* clip path points are Top left, Top right, bottom right, bottom left */
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    position: relative;
+
+    @include respond(phone) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
+
+    &__logoBox {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+
+    &__logo {
+        height: 3.5rem;        
+    }
+
+    &__homeHeadingBox {
+        position: absolute;
+        /*40 and 50% are in relation to the parent element*/
+        top: 40%;
+        left: 50%;
+        /* shifts in relation to the position of current element not parent element */
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+}
